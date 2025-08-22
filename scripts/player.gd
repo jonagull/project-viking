@@ -19,7 +19,6 @@ func _physics_process(_delta):
 		Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	)
 
-
 	if input_vector.length() > 0:
 		velocity = input_vector.normalized() * speed
 		move_and_slide()
@@ -44,6 +43,7 @@ func _physics_process(_delta):
 		anim_sprite.play()
 	
 func _unhandled_input(event):
+	print(event)
 	pass
 
 
