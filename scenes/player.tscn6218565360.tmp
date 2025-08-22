@@ -384,7 +384,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8li4q")
 }],
-"loop": false,
+"loop": true,
 "name": &"chop_down",
 "speed": 5.0
 }, {
@@ -413,7 +413,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1waeh")
 }],
-"loop": false,
+"loop": true,
 "name": &"chop_left",
 "speed": 5.0
 }, {
@@ -442,7 +442,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hn6mg")
 }],
-"loop": false,
+"loop": true,
 "name": &"chop_right",
 "speed": 5.0
 }, {
@@ -471,7 +471,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3sd1y")
 }],
-"loop": false,
+"loop": true,
 "name": &"chop_up",
 "speed": 5.0
 }, {
@@ -704,5 +704,3 @@ shape = SubResource("CapsuleShape2D_edurq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
