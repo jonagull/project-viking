@@ -9,9 +9,6 @@ extends CharacterBody2D
 
 var last_direction := "down"
 
-
-
-
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
