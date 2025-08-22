@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://tqs4ngd21o6o"]
+
+[ext_resource type="Script" uid="uid://qtk3lgshey8" path="res://scenes/enemy.gd" id="1_3gvst"]
+[ext_resource type="Texture2D" uid="uid://b6wwxh7tmhqsw" path="res://animations/enemies/Sprite-0001-Sheet-Sheet-Sheet.png" id="2_55jtl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gvst"]
+radius = 7.0
+height = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jtl"]
+atlas = ExtResource("2_55jtl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3gvst"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55jtl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_3gvst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3gvst")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_3gvst")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 2.38419e-07)
+scale = Vector2(0.75, 0.7)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
