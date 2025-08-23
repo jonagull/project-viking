@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim_sprite = $AnimatedSprite2D
 @export var speed := 100
+@export var hp := 100
 
 var last_direction := "down"
 var is_attacking := false
@@ -59,3 +60,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	print("finished")
 	is_attacking = false
 	#pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("body.name2", body.name)
+	if body.is_in_group("Enemy"):
+		print("enem!")
+	print(body)
+	print("Gotem!")
+	pass # Replace with function body.

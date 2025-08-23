@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://dk1cx3fwgswpw"]
+[gd_scene load_steps=96 format=3 uid="uid://dk1cx3fwgswpw"]
 
 [ext_resource type="Script" uid="uid://by18r4se36f3f" path="res://scripts/player.gd" id="1_dqkch"]
 [ext_resource type="Texture2D" uid="uid://cw1uuadtpoj6o" path="res://animations/characterAnimations/PNG/Sword_attack/Sword_attack_full.png" id="2_5wq57"]
@@ -688,6 +688,9 @@ animations = [{
 radius = 6.0
 height = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dqkch"]
+radius = 15.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 collision_layer = 3
@@ -705,4 +708,11 @@ shape = SubResource("CapsuleShape2D_edurq")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_dqkch")
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
